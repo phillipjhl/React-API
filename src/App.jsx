@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import 'isomorphic-fetch';
 import 'es6-promise';
-import FilmCard from './components/FilmCard';
+import FilmFetch from './components/FilmFetch';
 
 
 class App extends Component {
@@ -16,30 +16,14 @@ class App extends Component {
         this.handleLoadFilms = this.handleLoadFilms.bind(this);
     }
 
-    componentDidMount() {
-        fetch("https://ghibliapi.herokuapp.com/films")
-            .then(res => res.json())
-            .then(obj => {
-                //mapping over recieved array to produce Card components
-                let filmsData = obj.map((val) => {
-                    return <FilmCard key={val.id} title={val.title} description={val.description} director={val.director} />;
-                });
-                console.log(filmsData);
-                this.setState({ filmCards: filmsData });
-            });
-
-    }
-
     handleLoadFilms() {
         this.setState({ loaded: true })
     }
-
+    
     render() {
         if (this.state.loaded) {
             return (
-                <Fragment>
-                    {this.state.filmCards}
-                </Fragment>
+                <FilmFetch />
             );
         } else {
         return (
