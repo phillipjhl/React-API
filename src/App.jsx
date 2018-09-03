@@ -8,7 +8,9 @@ import FilmCard from './components/FilmCard';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            loaded: true
+        };
     }
 
     componentDidMount() {
