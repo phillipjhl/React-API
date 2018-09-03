@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import 'es6-promise';
-import FilmCard from './FilmCard';
+import Card from './Card';
 
 class FilmFetch extends Component {
     constructor(props) {
@@ -14,9 +14,9 @@ class FilmFetch extends Component {
         fetch("https://ghibliapi.herokuapp.com/films")
             .then(res => res.json())
             .then(obj => {
-                //mapping over recieved array to produce Card components
+                //mapping over recieved array to produce Film specific Card components
                 let filmsData = obj.map((val) => {
-                    return <FilmCard key={val.id} title={val.title} description={val.description} director={val.director} />;
+                    return <Card key={val.id} title={val.title} secondary={val.description} third={val.director} />;
                 });
                 console.log(filmsData);
                 this.setState({ filmCards: filmsData });
