@@ -47,12 +47,12 @@ class App extends Component {
             <div className="jumbotron">
                 <img className="mw-100 " alt="Studio Ghibli" src="https://ghibliapi.herokuapp.com/images/logo.svg" ></img>
                 <hr className="my-4" />
-                <button className="btn btn-dark btn-lg" onClick= {this.handleLoadFilms}>Load Flms</button>
-                <button className="btn btn-dark btn-lg" onClick= {this.handleLoadPeople}>Load People</button>
+                <button className="btn btn-dark btn-lg m-3" onClick= {this.handleLoadFilms}>Load Flms</button>
+                <button className="btn btn-dark btn-lg m-3" onClick= {this.handleLoadPeople}>Load People</button>
             </div>
             );
         }
     }
-}
+} 
             
 export default App;
